@@ -27,6 +27,9 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/todolist', {
+        templateUrl: 'views/todolist.html'
+      })
       .otherwise({
         redirectTo: '/'
       });

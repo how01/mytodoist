@@ -1,0 +1,112 @@
+<script type="text/javascript">
+	(function($){
+		$(document).ready(function(){
+			var index = 0;
+			debugger;
+			$('.rightdirect').click(function(e){
+				var content = $('.content');
+				var $active = content.find('.sl_active');
+
+				
+				var last = $('.item').last();
+				var first = $('.item').first();
+
+				$active = $active.length==0?first:$active;
+
+				var next = $active.next();
+				next = next.length==0?first:next;
+
+				var prev = $active.prev();
+				prev = prev.length==0?last:prev;
+
+				//next.addClass('next');
+				$active.addClass('prev');// active -> prev
+				next.addClass('next');// next ->active
+				next.addClass('sl_active');// next ->active
+				$('.active').removeClass('active');
+				++index;
+				if(index==3){
+					index=0;
+
+				}
+				$('.indicators>ol>li').eq(index).addClass('active');
+				
+				setTimeout(function(){
+					next.removeClass('next');
+					prev.removeClass('prev');
+					$active.removeClass('sl_active');
+				},0);
+
+			});
+
+			$('.leftdirect').click(function(e){
+				var content = $('.content');
+				var $active = content.find('.sl_active');
+
+				
+				var last = $('.item').last();
+				var first = $('.item').first();
+
+				$active = $active.length==0?first:$active;
+
+				var next = $active.prev();
+				next = next.length==0?last:next;
+
+				var prev = $active.next();
+				prev = prev.length==0?first:prev;
+
+				//next.addClass('next'); 
+				$active.addClass('next');// active -> prev
+				next.addClass('prev');// next ->active
+				next.addClass('sl_active');// next ->active
+
+				$('.active').removeClass('active');
+				--index;
+				if(index==-1){
+					index=2;
+
+				}
+				$('.indicators>ol>li').eq(index).addClass('active');
+				
+
+				setTimeout(function(){
+					next.removeClass('prev');
+					prev.removeClass('next');
+					$active.removeClass('sl_active');
+				},0);
+
+			});
+
+		});
+	})(jQuery);
+</script>
+<div class="carousel">
+	<div class="leftdirect">
+		<span></span>
+	</div>
+	<div class="rightdirect">
+		<span></span>
+	</div>
+	<div class="content">
+		<div class="item sl_active">
+			<!--img src="resource/first.svg" -->
+			<h3>First slide label</h3>
+			<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+		</div>
+		<div class="item slide2">
+			<h3>Second slide label</h3>
+			<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+		</div>
+		<div class="item">
+			<h3>Third slide label</h3>
+			<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+		</div>
+	</div>
+	<div class="indicators">
+		<ol>
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+		</ol>
+	</div>
+</div>	
