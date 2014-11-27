@@ -2,6 +2,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 // bower:scss
 @import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
+//custom :scss
+@import "login.scss";
+
+//end custom
+
 
 .browsehappy {
   margin: 0.2em 0;
@@ -26,7 +31,6 @@ body {
 .footer{
   margin: auto;
   width: 300px;
-  position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
@@ -34,8 +38,8 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-
+  border-bottom: 1px solid #AFC7C5;;
+  height: 50px;
   /* Make the masthead heading the same height as the navigation */
   h3 {
     margin-top: 0;
@@ -89,10 +93,7 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
+
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
@@ -105,8 +106,8 @@ body {
 }
 
 .main-view{
-  background-color: #eee;
-  margin-top:25px;
+  border-top: 1px solid #1886BE;
+  padding-top: 25px;
   .item >img{
     height: 475px;
     width: 900px;
@@ -121,4 +122,61 @@ body {
 .list-content{
   background-color: #fff;
   padding: 0 15px;
+}
+
+.header{
+  .logo-main{
+    display: inline-block;
+    padding-left: 80px;
+    margin-bottom: -5px;
+    img{
+      float: left;
+      height: 45px;
+      padding: 0 5px;
+    }
+
+    >.trademark{
+      display: inline-block;
+      span{
+        font-size: 35px;
+        font-weight: 800;
+      }
+      span:first-child{
+        color: #2073a5;
+      }
+      span:last-child{
+        color:#464646;
+      }
+    }
+  }
+  .menu-container{
+    float: right;
+    display: inline-block;
+  } 
+  .search-container{
+    float: right;
+    display: inline-block;
+    position: relative;
+    .search-btn{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      height: 28px;
+      margin: auto;
+      width: 28px;
+      right: 3px;
+      border: none;
+      color: #fff;
+      background-color: #1975CF;
+    }
+  } 
+  
+}
+.header.ng-hide +div{
+  border: none;
+}
+
+.li:hover{
+  color: #fff;
+  background-color: #428bca;
 }

@@ -20,16 +20,15 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container-fluid">
-      <div ng-include="'views/header.html'"></div>
-
+    
+    <div class="container-fluid" ng-controller="appController">
+      <div ng-show="showHeader" class="header" ng-include="'views/header.html'"></div>
       <div ng-view class="main-view"></div>
-
       <div class="footer">
         <p><span class="glyphicon glyphicon-subtitles"></span> copyright 2014</p>
       </div>
     </div>
-
+    
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -75,8 +74,14 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/appController.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+
+        <script src="books/book.js"></script>
+        <script src="books/books_controller.js"></script>
+        <script src="app_modules/books_model/books_services.js"></script>
+
         <!-- endbuild -->
 </body>
 </html>

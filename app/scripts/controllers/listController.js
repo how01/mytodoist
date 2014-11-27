@@ -6,13 +6,12 @@
  * Description
  */
 angular.module('myList')
-	.controller('myListController', ['$scope', '$route','UserService',
-		function($scope,$route,UserService) {
-			UserService.getListData().success(function(data) {
-				$scope.items = data;
-			});
-			UserService.getUserList().success(function(data) {
-				$scope.users = data;
-			});
+	.controller('myListController', ['$scope', '$route','BooksService',
+		function($scope,$route,BooksService) {
+			
+			BooksService.search_books()
+			.then(function(data){
+				$scope.books =data;
+			})
 		}
 	]);

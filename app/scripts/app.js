@@ -15,7 +15,10 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    /* custom module */
+    'Book'
+
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -28,7 +31,11 @@ angular
         controller: 'AboutCtrl'
       })
       .when('/todolist', {
-        templateUrl: 'views/todolist.html'
+        templateUrl: 'books/books.html',
+        controller:'myBookController'
+      })
+      .when('/login', {
+        templateUrl: 'views/login.html'
       })
       .otherwise({
         redirectTo: '/'
