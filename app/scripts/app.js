@@ -17,8 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     /* custom module */
-    'Book'
-
+    'Book',
+    'MovieSearch'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -36,6 +36,10 @@ angular
       })
       .when('/login', {
         templateUrl: 'views/login.html'
+      })
+      .when('/movie', {
+        templateUrl: 'movie/movie.html',
+        controller:'MoiveController'
       })
       .otherwise({
         redirectTo: '/'

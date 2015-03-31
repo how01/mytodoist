@@ -1,0 +1,24 @@
+/*book search page*/
+.book-search{
+	.search-bar{
+		.form-control{
+			display: inline-block;
+			width: 175px;
+		}
+	}	
+	td>.badge{
+		background-color: #CD5865;
+	}
+	.list-group-item{
+		cursor: pointer;
+		.badge{
+			background-color: #428BCA;
+		}
+	}
+	.list-group-item:hover{
+			background-color: #eee;
+	}
+	.selected{
+		background-color: #ddd;
+	}
+}

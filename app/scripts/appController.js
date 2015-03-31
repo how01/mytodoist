@@ -14,10 +14,11 @@ angular.module('myWorkspaceApp')
       $rootScope.$on('$routeChangeSuccess', function(){
         if ( $location.path() === '/login'){
           $rootScope.showHeader = false;
-          $('body').addClass('login-ctrl');
+          angular.element('body').addClass('login-ctrl');
         }
         else{
           $rootScope.showHeader = true;
+          angular.element('body').removeClass('login-ctrl');
         }
-      }); 
+      });
     }]);

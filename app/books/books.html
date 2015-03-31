@@ -1,62 +1,55 @@
-<div class="container-fluid">
+<div class="container-fluid book-search">
+<div dt-link text="click me" nameTest="www.google.com" dt-plink>
+  
+</div>
 	<!-- left tree view-->
 	<div class="row col-xs-3 left-view ">
 		<ul class="list-group">
-		  <li class="list-group-item">
-		    <span class="badge">14</span>Work
-		  </li>
-		  <li class="list-group-item">
-		    <span class="badge">2</span>Shopping
-		  </li>
-		  <li class="list-group-item">
-		    <span class="badge">100</span>Book to read
-		  </li>
-		  <li class="list-group-item">
-		    <span class="badge">1</span>Target
-		  </li>
-		  <li class="list-group-item">
-		    <span class="badge">0</span> todo
-		  </li>
-		  <li class="list-group-item">
-		    <span class="badge">1</span>  todo
-		  </li>
-		  <li class="list-group-item">
-		    <span class="badge">1</span> todo
-		  </li>
-		  <li class="list-group-item">
-		    <span class="badge">1</span> todo
-		  </li>
-		  <li class="list-group-item">
-		    <span class="badge">1</span> todo
-		  </li>
-		  <li class="list-group-item">
-		    <span class="badge">1</span> todo
+		  <li class="list-group-item" ng-repeat="c in category">
+		    <span class="badge">{{c.count}}</span>{{c.title}}
 		  </li>
 		</ul>
 	</div>
 	<!-- list view-->
 	<div class="row col-xs-9 ">
 		<div class="list-content">
-			<div>
-				<input type="text" ng-model="bookname"/>
-				<button type="button" ng-click="search()">Search</button>
+			<div class="search-bar">
+				<input type="text" class="form-control" ng-model="bookname" ng-keypress="enterSearch($event)"/>
+				<button type="button" class="btn btn-primary" ng-click="search()">Search</button>
 			</div>
 			<table class="table table-hover  ">
 			<thead>
 				<th>No.</th>
-				<th>priorty</th>
-				<th>title</th>
+				<th>Name</th>
+				<th>Author/Pub</th>
 				<th>description</th>
 				<th>status</th>
 			</thead>
-			<tr ng-repeart="book in data">
-				<td>{{index}}</td>
+			<tr ng-repeat="book in books">
+				<td>{{$index+1}}</td>
 				<td>{{book.title}}</td>
 				<td>{{book.author}}</td>
 				<td>{{book.description}}</td>
-				<td>buy</td>
+				<td><span class="badge">sold out</span></td>
 			</tr>
 		</table>
 		</div>
 	</div>
 </div>
+<script>
+(function($){
+	$(document).ready(function() {
+		$('body').on('click', '.book-search .list-group-item', function(event) {
+			event.preventDefault();
+			var current = $(this);
+			if(!current.hasClass('selected')){
+				//remove previous
+				$('.book-search .list-group-item.selected').removeClass('selected');
+				//add current	
+				$(this).addClass('selected');
+			}
+			
+		});
+	});
+})(jQuery);
+</script>
